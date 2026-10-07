@@ -173,3 +173,6 @@ body{
 .logo-center{position:static;transform:none}
 .header-left{display:flex;align-items:center;gap:20px}
 @media(max-width:640px){.header-left{width:100%}.logo-center{width:100%;justify-content:center;order:-1}}
+
+/* === بطاقة التواصل والاستفسار تظهر آخرا على الجوال فقط === */
+@media(max-width:560px){#cardsGrid .card.highlight{order:99}}
