@@ -1,0 +1,175 @@
+:root{
+  --bg:#faf6f1;
+  --card:#fffaf3;
+  --panel:#f7ece3;
+  --primary:#7a4b60;
+  --primary-dark:#5e3748;
+  --accent:#e191a3;
+  --accent-hover:#d17a8e;
+  --text:#5c3d4a;
+  --muted:#8a6a77;
+  --shadow:0 10px 30px rgba(122,75,96,.14);
+  --radius:28px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Cairo',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.8;
+}
+.container{max-width:1150px;margin:0 auto;padding:0 20px}
+
+/* الهيدر */
+.header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(250,246,241,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #eee0d3;
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  height:72px;gap:16px;
+}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--primary)}
+.logo-mark{font-size:32px;color:var(--primary)}
+.logo-text{display:flex;flex-direction:column;line-height:1.2}
+.logo-text strong{font-size:20px;font-weight:900}
+.logo-text small{font-size:11px;letter-spacing:1px;color:var(--muted)}
+.nav{display:flex;gap:22px}
+.nav a{text-decoration:none;color:var(--text);font-weight:700;font-size:15px}
+.nav a.active,.nav a:hover{color:var(--primary-dark);border-bottom:2px solid var(--accent)}
+.header-actions{display:flex;align-items:center;gap:10px}
+.btn{
+  display:inline-block;background:var(--primary);color:#fff;
+  padding:10px 28px;border-radius:999px;text-decoration:none;font-weight:800;
+  transition:.25s;border:2px solid var(--primary);
+}
+.btn:hover{background:var(--primary-dark);transform:translateY(-2px)}
+.btn-small{padding:8px 22px;font-size:14px;background:var(--accent);border-color:var(--accent)}
+.btn-small:hover{background:var(--accent-hover)}
+.btn-light{background:#fff;color:var(--primary);border-color:#fff}
+.btn-outline{background:transparent;color:#fff;border-color:#fff}
+.menu-btn{display:none;background:var(--primary);color:#fff;border:none;border-radius:10px;padding:8px 14px;font-size:18px;cursor:pointer}
+.mobile-nav{display:none;flex-direction:column;background:#fff;border-top:1px solid #eee}
+.mobile-nav a{padding:14px 24px;text-decoration:none;color:var(--text);font-weight:700;border-bottom:1px solid #f3e7da}
+.mobile-nav.open{display:flex}
+
+/* البطل */
+.hero{padding:26px 0 10px}
+.hero-card{
+  position:relative;overflow:hidden;border-radius:36px;
+  background:linear-gradient(135deg,#c98a96 0%,#a86a7e 45%,#7a4b60 100%);
+  color:#fff;padding:64px 48px;min-height:340px;
+  display:flex;align-items:center;
+  box-shadow:var(--shadow);
+}
+.hero-card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 20% 20%,rgba(255,255,255,.25),transparent 50%),
+  radial-gradient(circle at 85% 30%,rgba(0,0,0,.18),transparent 45%);
+}
+.hero-content{position:relative;z-index:2;max-width:640px}
+.hero-badge{background:rgba(255,255,255,.22);padding:6px 18px;border-radius:999px;font-size:13px;font-weight:700}
+.hero-card h1{font-size:clamp(44px,7vw,76px);font-weight:900;line-height:1.25;margin:14px 0}
+.hero-sub{background:#fdf6ee;color:var(--primary);display:inline-block;padding:12px 28px;border-radius:16px;font-weight:800;font-size:clamp(15px,2.4vw,20px);margin-top:6px}
+.hero-btns{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+.deco{position:absolute;border-radius:20px;background:rgba(255,255,255,.18)}
+.d1{width:90px;height:90px;left:8%;top:18%;transform:rotate(15deg)}
+.d2{width:50px;height:50px;left:20%;bottom:20%}
+.d3{width:130px;height:130px;left:-30px;bottom:-30px;opacity:.4}
+
+/* الأقسام */
+.section{padding:36px 0}
+.section-head{text-align:center;margin-bottom:28px}
+.section-head h2{font-size:32px;font-weight:900;color:var(--primary)}
+.section-head p{color:var(--muted);font-weight:600}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{
+  background:var(--card);border-radius:var(--radius);
+  padding:30px 24px;text-align:center;box-shadow:var(--shadow);
+  border:1px solid #f3e7d6;transition:.3s;
+  display:flex;flex-direction:column;gap:10px;
+}
+.card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(122,75,96,.22)}
+.card.highlight{border:2px solid var(--accent)}
+.icon-wrap{width:120px;height:120px;margin:0 auto;background:var(--panel);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.icon-wrap svg{width:92px;height:92px}
+.card h3{font-size:19px;font-weight:900;color:var(--primary);line-height:1.6}
+.card h3.pink{color:#c97688}
+.card p{font-size:14.5px;color:var(--text);flex:1}
+.btn-card{
+  display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
+  padding:9px 34px;border-radius:999px;font-weight:800;font-size:15px;transition:.25s;
+  box-shadow:0 6px 16px rgba(225,145,163,.4);
+}
+.btn-card:hover{background:var(--accent-hover);transform:scale(1.04)}
+.btn-card.dark{background:var(--primary)}
+.btn-card.dark:hover{background:var(--primary-dark)}
+
+/* الأهداف */
+.goals-sec .panel{background:var(--panel);border-radius:32px;padding:40px 30px;text-align:center}
+.goals-sec h2{color:var(--primary);font-size:28px;font-weight:900;margin-bottom:20px}
+.goals-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;text-align:right}
+.goal{background:#fffdf9;border-radius:18px;padding:16px 20px;display:flex;align-items:center;gap:14px;font-weight:800;font-size:15px}
+.goal-icon{width:48px;height:48px;flex-shrink:0;background:var(--accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px}
+.mt{margin-top:34px}
+.condition-bar{background:var(--primary);color:#fff;border-radius:16px;padding:16px 24px;font-weight:800;font-size:16px}
+
+/* فوتر */
+.footer{background:#fff;border-top:1px solid #eee0d3;margin-top:20px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;padding:28px 20px;flex-wrap:wrap}
+.footer-links{display:flex;gap:18px;align-items:center}
+.footer-links a{color:var(--primary);font-weight:700;text-decoration:none}
+.copyright{text-align:center;padding:12px;background:var(--primary);color:#fff;font-size:13px}
+
+/* سهم الأعلى */
+#toTop{
+  position:fixed;bottom:24px;left:24px;width:52px;height:52px;border-radius:50%;
+  background:var(--primary);color:#fff;border:none;font-size:24px;cursor:pointer;
+  box-shadow:0 10px 24px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:.3s;z-index:99;
+}
+#toTop.show{opacity:1;pointer-events:auto}
+#toTop:hover{background:var(--primary-dark);transform:translateY(-4px)}
+
+@media(max-width:900px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .nav{display:none}
+  .menu-btn{display:block}
+  .hero-card{padding:44px 24px}
+}
+@media(max-width:560px){
+  .grid,.goals-grid{grid-template-columns:1fr}
+}
+
+/* === تعديلات معتمدة === */
+.header-inner{position:relative}
+.logo-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;text-decoration:none}
+.logo-img{height:54px;border-radius:14px;display:block}
+.logo-fallback{display:flex;align-items:center;gap:10px}
+.lf-mark{width:44px;height:48px;flex-shrink:0}
+.lf-text{display:flex;flex-direction:column;line-height:1.15}
+.lf-text strong{color:var(--primary);font-size:24px;font-weight:900;white-space:nowrap}
+.lf-text small{color:#b39a80;font-size:11px;letter-spacing:2px;font-weight:700}
+.hero-card{justify-content:center;text-align:center}
+.hero-content{margin:0 auto;text-align:center;max-width:840px}
+.hero-card h1{white-space:nowrap;font-size:clamp(32px,5.6vw,62px)}
+.hero-sub{margin-left:auto;margin-right:auto}
+.groups-intro{font-size:17px;font-weight:700;color:var(--text)}
+.groups-intro span{color:#c05a73;font-weight:900}
+.footer-inner{justify-content:center;text-align:center}
+@media(max-width:560px){.hero-card h1{white-space:normal}.lf-text strong{font-size:18px}.lf-mark{width:34px;height:38px}.logo-img{height:42px}}
+@media(max-width:640px){.header-inner{flex-wrap:wrap;height:auto;padding:8px 16px;row-gap:6px}.logo-center{position:static;transform:none;width:100%;justify-content:center;order:-1}.header-actions{margin-inline-start:auto}}
+
+/* === المستطيل متداخل مثل الملف الأصلي + سطر واحد === */
+.hero-card{padding-bottom:96px}
+.hero-sub{display:block;width:min(90%,1000px);margin:-62px auto 0;position:relative;z-index:3;background:#f6ebe0;border-radius:20px;box-shadow:var(--shadow);white-space:nowrap;font-size:16px;font-weight:800;color:var(--primary);padding:18px 24px;text-align:center}
+@media(max-width:1023px){.hero-sub{font-size:13px;width:min(94%,1000px)}}
+@media(max-width:640px){.hero-sub{white-space:normal;font-size:14px}}
+
+/* === الشعار يمين والخيارات يسار === */
+.logo-center{position:static;transform:none}
+.header-left{display:flex;align-items:center;gap:20px}
+@media(max-width:640px){.header-left{width:100%}.logo-center{width:100%;justify-content:center;order:-1}}
